@@ -1855,12 +1855,6 @@
           "description" : "o (optional) Offset in the data storage of the first response element. Example <i>?o=10</i>",
           "required" : false,
           "type" : "string"
-        }, {
-          "name" : "by",
-          "in" : "query",
-          "description" : "by (optional) Ordering criteria of response elements. Example <i>?by=aFieldName|desc</i>",
-          "required" : false,
-          "type" : "string"
         } ],
         "responses" : {
           "200" : {
