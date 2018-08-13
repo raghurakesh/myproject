@@ -1,0 +1,2802 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "Alert Engine Module APIs",
+    "description" : "Alert Engine Module APIs",
+    "contact" : {
+      "name" : "info@finantix.com",
+      "email" : "info@finantix.com"
+    },
+    "license" : {
+      "name" : "Finantix",
+      "url" : "https://www.Finantix.com"
+    },
+    "version" : "1.0.0"
+  },
+  "host" : "api.finantix.com",
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/alertengine/alertRepositorys" : {
+      "get" : {
+        "tags" : [ "AlertRepositoryService" ],
+        "summary" : "Retrieve the alerts based on the logged in user - modified by user1",
+        "description" : "Retrieve the alerts based on the logged in user",
+        "operationId" : "getAll_83",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "l",
+          "in" : "query",
+          "description" : "l (optional) Max amount of response elements (limit). Example <i>?l=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "o",
+          "in" : "query",
+          "description" : "o (optional) Offset in the data storage of the first response element. Example <i>?o=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "by",
+          "in" : "query",
+          "description" : "by (optional) Ordering criteria of response elements. Example <i>?by=aFieldName|desc</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "filter (optional) Filter criteria of the response. Example <i>?aFieldName=1|2|3</i>",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of all the Alert Repositories based on the request parameter(s).",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertRepositoryDTO"
+              }
+            },
+            "headers" : {
+              "meta-totalCount" : {
+                "description" : "Number of existing elements with the query restriction.",
+                "type" : "string"
+              },
+              "meta-partialCount" : {
+                "description" : "Number of elements in the response.",
+                "type" : "string"
+              },
+              "meta-offset" : {
+                "description" : "Offset in the data storage of the first element of the response.",
+                "type" : "string"
+              },
+              "meta-next" : {
+                "description" : "Offset of the next existing element in data storage not included in the response.",
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "x-hasMetaData" : true,
+        "x-java-service-name" : "AlertRepositoryService",
+        "x-java-api-name" : "getAll",
+        "x-getAll" : true
+      },
+      "put" : {
+        "tags" : [ "AlertRepositoryService" ],
+        "summary" : "Update the properties of a specific Notification Message",
+        "description" : "Update the properties of a specific Notification Message",
+        "operationId" : "update_80",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AlertRepositoryDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertRepositoryDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "AlertRepositoryService",
+        "x-java-api-name" : "update"
+      },
+      "post" : {
+        "tags" : [ "AlertRepositoryService" ],
+        "summary" : "Create a specific Notification Message",
+        "description" : "Create a specific Notification Message",
+        "operationId" : "create_81",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AlertRepositoryDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertRepositoryDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "AlertRepositoryService",
+        "x-java-api-name" : "create"
+      },
+      "delete" : {
+        "tags" : [ "AlertRepositoryService" ],
+        "summary" : "Delete a specific Notification Message",
+        "description" : "Delete a specific Notification Message",
+        "operationId" : "deleteAll_82",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "AlertRepositoryService",
+        "x-java-api-name" : "deleteAll"
+      }
+    },
+    "/alertengine/alertRepositorys/count" : {
+      "post" : {
+        "tags" : [ "AlertRepositoryService" ],
+        "summary" : "Retrieve total and read alert count for a specific or all alert types for the logged in user",
+        "description" : "Retrieve total and read alert count for a specific or all alert types for the logged in user",
+        "operationId" : "countReadAlert_89",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AlertCountSearchFilterDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertCountResultDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "AlertRepositoryService",
+        "x-java-api-name" : "countReadAlert"
+      }
+    },
+    "/alertengine/alertRepositorys/list" : {
+      "put" : {
+        "tags" : [ "AlertRepositoryService" ],
+        "summary" : "Update a list of Alert Repository entities",
+        "description" : "Update a list of Alert Repository entities",
+        "operationId" : "updateAll_87",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/AlertRepositoryDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of Alert Repository entity that are updated",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertRepositoryDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "AlertRepositoryService",
+        "x-java-api-name" : "updateAll"
+      },
+      "post" : {
+        "tags" : [ "AlertRepositoryService" ],
+        "summary" : "Create a list of Alert Repositories",
+        "description" : "Create a list of Alert Repositories",
+        "operationId" : "createAll_86",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/AlertRepositoryDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of Alert Repositories that are created",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertRepositoryDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "AlertRepositoryService",
+        "x-java-api-name" : "createAll"
+      }
+    },
+    "/alertengine/alertRepositorys/search" : {
+      "post" : {
+        "tags" : [ "AlertRepositoryService" ],
+        "summary" : "Retrieve all Alerts of a specific User",
+        "description" : "Retrieve all Alerts of a specific User",
+        "operationId" : "getAllByCustomFilter_88",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "l",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "o",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "by",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AlertRepositorySearchFilterDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of all the Alert Repositories based on the request parameter(s).",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertRepositoryDTO"
+              }
+            },
+            "headers" : {
+              "meta-totalCount" : {
+                "description" : "Number of existing elements with the query restriction.",
+                "type" : "string"
+              },
+              "meta-partialCount" : {
+                "description" : "Number of elements in the response.",
+                "type" : "string"
+              },
+              "meta-offset" : {
+                "description" : "Offset in the data storage of the first element of the response.",
+                "type" : "string"
+              },
+              "meta-next" : {
+                "description" : "Offset of the next existing element in data storage not included in the response.",
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "AlertRepositoryService",
+        "x-java-api-name" : "getAllByCustomFilter",
+        "x-getAll" : true
+      }
+    },
+    "/alertengine/alertRepositorys/{id}" : {
+      "get" : {
+        "tags" : [ "AlertRepositoryService" ],
+        "summary" : "Retrieve the specific Notification Message Entity based on the Notification Message id",
+        "description" : "Retrieve the specific Notification Message Entity based on the Notification Message id",
+        "operationId" : "getById_85",
+        "produces" : [ "application/json", "application/xml" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertRepositoryDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "AlertRepositoryService",
+        "x-java-api-name" : "getById"
+      },
+      "delete" : {
+        "tags" : [ "AlertRepositoryService" ],
+        "summary" : "Delete the specific Notification Message Entity based on the Notification Message id",
+        "description" : "Delete the specific Notification Message Entity based on the Notification Message id",
+        "operationId" : "deleteById_84",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "AlertRepositoryService",
+        "x-java-api-name" : "deleteById"
+      },
+      "parameters" : [ {
+        "name" : "id",
+        "in" : "path",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int64"
+      } ]
+    },
+    "/alertengine/alertTargets" : {
+      "get" : {
+        "tags" : [ "AlertTargetService" ],
+        "summary" : "Retrieve Alert Targets using optional filters and can define the sorting using order by option",
+        "description" : "Retrieve Alert Targets using optional filters and can define the sorting using order by option",
+        "operationId" : "getAll_134",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "l",
+          "in" : "query",
+          "description" : "l (optional) Max amount of response elements (limit). Example <i>?l=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "o",
+          "in" : "query",
+          "description" : "o (optional) Offset in the data storage of the first response element. Example <i>?o=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "by",
+          "in" : "query",
+          "description" : "by (optional) Ordering criteria of response elements. Example <i>?by=aFieldName|desc</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "filter (optional) Filter criteria of the response. Example <i>?aFieldName=1|2|3</i>",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of all the Alert Targets based on the request parameter(s).",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertTargetDTO"
+              }
+            },
+            "headers" : {
+              "meta-totalCount" : {
+                "description" : "Number of existing elements with the query restriction.",
+                "type" : "string"
+              },
+              "meta-partialCount" : {
+                "description" : "Number of elements in the response.",
+                "type" : "string"
+              },
+              "meta-offset" : {
+                "description" : "Offset in the data storage of the first element of the response.",
+                "type" : "string"
+              },
+              "meta-next" : {
+                "description" : "Offset of the next existing element in data storage not included in the response.",
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "x-hasMetaData" : true,
+        "x-java-service-name" : "AlertTargetService",
+        "x-java-api-name" : "getAll",
+        "x-getAll" : true
+      },
+      "put" : {
+        "tags" : [ "AlertTargetService" ],
+        "summary" : "Update a specific Alert Target",
+        "description" : "Update a specific Alert Target",
+        "operationId" : "update_131",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AlertTargetDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertTargetDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "AlertTargetService",
+        "x-java-api-name" : "update"
+      },
+      "post" : {
+        "tags" : [ "AlertTargetService" ],
+        "summary" : "Create a specific Alert Target",
+        "description" : "Create a specific Alert Target",
+        "operationId" : "create_132",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AlertTargetDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertTargetDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "AlertTargetService",
+        "x-java-api-name" : "create"
+      },
+      "delete" : {
+        "tags" : [ "AlertTargetService" ],
+        "summary" : "Delete a set of Alert Targets",
+        "description" : "Delete a set of Alert Targets",
+        "operationId" : "deleteAll_133",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "AlertTargetService",
+        "x-java-api-name" : "deleteAll"
+      }
+    },
+    "/alertengine/alertTargets/list" : {
+      "put" : {
+        "tags" : [ "AlertTargetService" ],
+        "summary" : "Update a list of Alert Target entities",
+        "description" : "Update a list of Alert Target entities",
+        "operationId" : "updateAll_138",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/AlertTargetDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The Alert Target entities that are updated",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertTargetDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "AlertTargetService",
+        "x-java-api-name" : "updateAll"
+      },
+      "post" : {
+        "tags" : [ "AlertTargetService" ],
+        "summary" : "Create a list of Alert Target entities",
+        "description" : "Create a list of Alert Target entities",
+        "operationId" : "createAll_137",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/AlertTargetDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of Alert target entities that are created",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertTargetDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "AlertTargetService",
+        "x-java-api-name" : "createAll"
+      }
+    },
+    "/alertengine/alertTargets/{id}" : {
+      "get" : {
+        "tags" : [ "AlertTargetService" ],
+        "summary" : "Retrieve the specific Alert Target Entity based on the Alert Target id",
+        "description" : "Retrieve the specific Alert Target Entity based on the Alert Target id",
+        "operationId" : "getById_136",
+        "produces" : [ "application/json", "application/xml" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertTargetDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "AlertTargetService",
+        "x-java-api-name" : "getById"
+      },
+      "delete" : {
+        "tags" : [ "AlertTargetService" ],
+        "summary" : "Delete the specific Alert Target Entity based on the Alert Target id",
+        "description" : "Delete the specific Alert Target Entity based on the Alert Target id",
+        "operationId" : "deleteById_135",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "AlertTargetService",
+        "x-java-api-name" : "deleteById"
+      },
+      "parameters" : [ {
+        "name" : "id",
+        "in" : "path",
+        "description" : "Unique id assigned by the system to identify the Alert",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int64"
+      } ]
+    },
+    "/alertengine/alertTypes/list" : {
+      "put" : {
+        "tags" : [ "AlertTypeService" ],
+        "summary" : "Update list of Alert types",
+        "description" : "Update list of Alert types",
+        "operationId" : "updateAll_25",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/AlertTypeDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The updated list of Alert types",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertTypeDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "AlertTypeService",
+        "x-java-api-name" : "updateAll"
+      },
+      "post" : {
+        "tags" : [ "AlertTypeService" ],
+        "summary" : "Create list of Alert types",
+        "description" : "Create list of Alert types",
+        "operationId" : "createAll_24",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/AlertTypeDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of Alert Types that are created",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertTypeDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "AlertTypeService",
+        "x-java-api-name" : "createAll"
+      }
+    },
+    "/alertengine/alertTypes/{id}" : {
+      "get" : {
+        "tags" : [ "AlertTypeService" ],
+        "summary" : "Retrieve specific Alert type",
+        "description" : "Retrieve specific Alert type",
+        "operationId" : "getById_23",
+        "produces" : [ "application/json", "application/xml" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertTypeDTO"
+            }
+          }
+        },
+        "x-roles-allowed" : {
+          "roles" : [ {
+            "role" : "Roles.ADMIN"
+          }, {
+            "role" : "Roles.AlertMaster"
+          } ]
+        },
+        "x-java-service-name" : "AlertTypeService",
+        "x-java-api-name" : "getById"
+      },
+      "delete" : {
+        "tags" : [ "AlertTypeService" ],
+        "summary" : "Delete specific Alert type",
+        "description" : "Delete specific Alert type",
+        "operationId" : "deleteById_22",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "AlertTypeService",
+        "x-java-api-name" : "deleteById"
+      },
+      "parameters" : [ {
+        "name" : "id",
+        "in" : "path",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int64"
+      } ]
+    },
+    "/alertengine/alerts" : {
+      "get" : {
+        "tags" : [ "AlertService" ],
+        "summary" : "Retrieve Alerts using optional filters and can define the sorting using order by option",
+        "description" : "Retrieve Alerts using optional filters and can define the sorting using order by option",
+        "operationId" : "getAll_65",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "l",
+          "in" : "query",
+          "description" : "l (optional) Max amount of response elements (limit). Example <i>?l=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "o",
+          "in" : "query",
+          "description" : "o (optional) Offset in the data storage of the first response element. Example <i>?o=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "by",
+          "in" : "query",
+          "description" : "by (optional) Ordering criteria of response elements. Example <i>?by=aFieldName|desc</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "filter (optional) Filter criteria of the response. Example <i>?aFieldName=1|2|3</i>",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of all the Alerts based on the request parameter(s).",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertDTO"
+              }
+            },
+            "headers" : {
+              "meta-totalCount" : {
+                "description" : "Number of existing elements with the query restriction.",
+                "type" : "string"
+              },
+              "meta-partialCount" : {
+                "description" : "Number of elements in the response.",
+                "type" : "string"
+              },
+              "meta-offset" : {
+                "description" : "Offset in the data storage of the first element of the response.",
+                "type" : "string"
+              },
+              "meta-next" : {
+                "description" : "Offset of the next existing element in data storage not included in the response.",
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "x-hasMetaData" : true,
+        "x-java-service-name" : "AlertService",
+        "x-java-api-name" : "getAll",
+        "x-getAll" : true
+      },
+      "put" : {
+        "tags" : [ "AlertService" ],
+        "summary" : "Update the processing date in the Alert Table",
+        "description" : "Update the processing date in the Alert Table",
+        "operationId" : "update_62",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AlertDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "AlertService",
+        "x-java-api-name" : "update"
+      },
+      "post" : {
+        "tags" : [ "AlertService" ],
+        "summary" : "Insert one alert to the Alert and Target tables",
+        "description" : "Insert one alert to the Alert and Target tables",
+        "operationId" : "create_63",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AlertDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "AlertService",
+        "x-java-api-name" : "create"
+      },
+      "delete" : {
+        "tags" : [ "AlertService" ],
+        "summary" : "Delete a set of alerts",
+        "description" : "Delete a set of alerts",
+        "operationId" : "deleteAll_64",
+        "responses" : {
+          "204" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "AlertService",
+        "x-java-api-name" : "deleteAll"
+      }
+    },
+    "/alertengine/alerts/list" : {
+      "put" : {
+        "tags" : [ "AlertService" ],
+        "summary" : "Update more than one alerts to the Alert and Target tables",
+        "description" : "Update more than one alerts to the Alert and Target tables",
+        "operationId" : "updateAll_69",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/AlertDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of Alert entities that are updated",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "AlertService",
+        "x-java-api-name" : "updateAll"
+      },
+      "post" : {
+        "tags" : [ "AlertService" ],
+        "summary" : "Insert more than one alerts to the Alert and Target tables",
+        "description" : "Insert more than one alerts to the Alert and Target tables",
+        "operationId" : "createAll_68",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/AlertDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of alert entities that are created",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "AlertService",
+        "x-java-api-name" : "createAll"
+      }
+    },
+    "/alertengine/alerts/search" : {
+      "post" : {
+        "tags" : [ "AlertService" ],
+        "summary" : "Retrieve all the alerts based on the filter condition passed in the input parameters",
+        "description" : "Retrieve all the alerts based on the filter condition passed in the input parameters",
+        "operationId" : "getAllByCustomFilter_70",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "l",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "o",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "by",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AlertSearchFilterDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of Alert entities retrieved based on the search conditions passed in the input parameters",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertDTO"
+              }
+            },
+            "headers" : {
+              "meta-totalCount" : {
+                "description" : "Number of existing elements with the query restriction.",
+                "type" : "string"
+              },
+              "meta-partialCount" : {
+                "description" : "Number of elements in the response.",
+                "type" : "string"
+              },
+              "meta-offset" : {
+                "description" : "Offset in the data storage of the first element of the response.",
+                "type" : "string"
+              },
+              "meta-next" : {
+                "description" : "Offset of the next existing element in data storage not included in the response.",
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "AlertService",
+        "x-java-api-name" : "getAllByCustomFilter",
+        "x-getAll" : true
+      }
+    },
+    "/alertengine/alerts/{id}" : {
+      "delete" : {
+        "tags" : [ "AlertService" ],
+        "summary" : "Delete a specific Alert based on the Alert id",
+        "description" : "Delete a specific Alert based on the Alert id",
+        "operationId" : "deleteById_66",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "AlertService",
+        "x-java-api-name" : "deleteById"
+      },
+      "parameters" : [ {
+        "name" : "id",
+        "in" : "path",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int64"
+      } ]
+    },
+    "/alertengine/categorys" : {
+      "get" : {
+        "tags" : [ "CategoryService" ],
+        "summary" : "Retrieve Categories using optional filters and can define the sorting using order by option",
+        "description" : "Retrieve Categories using optional filters and can define the sorting using order by option",
+        "operationId" : "getAll_5",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "l",
+          "in" : "query",
+          "description" : "(optional) Max amount of response elements (limit). Example <i>?l=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "o",
+          "in" : "query",
+          "description" : "o (optional) Offset in the data storage of the first response element. Example <i>?o=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "by",
+          "in" : "query",
+          "description" : "by (optional) Ordering criteria of response elements. Example <i>?by=aFieldName|desc</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "filter (optional) Filter criteria of the response. Example <i>?aFieldName=1|2|3</i>",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of all the Alert Categories based on the request parameter(s).",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CategoryDTO"
+              }
+            },
+            "headers" : {
+              "meta-totalCount" : {
+                "description" : "Number of existing elements with the query restriction.",
+                "type" : "string"
+              },
+              "meta-partialCount" : {
+                "description" : "Number of elements in the response.",
+                "type" : "string"
+              },
+              "meta-offset" : {
+                "description" : "Offset in the data storage of the first element of the response.",
+                "type" : "string"
+              },
+              "meta-next" : {
+                "description" : "Offset of the next existing element in data storage not included in the response.",
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "x-hasMetaData" : true,
+        "x-java-service-name" : "CategoryService",
+        "x-java-api-name" : "getAll",
+        "x-getAll" : true
+      },
+      "put" : {
+        "tags" : [ "CategoryService" ],
+        "summary" : "Update specific Category",
+        "description" : "Update specific Category based on the id specified in the path",
+        "operationId" : "update_2",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CategoryDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/CategoryDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "CategoryService",
+        "x-java-api-name" : "update"
+      },
+      "post" : {
+        "tags" : [ "CategoryService" ],
+        "summary" : "Create one Alert Category",
+        "description" : "Create one Alert Category",
+        "operationId" : "create_3",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CategoryDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/CategoryDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "CategoryService",
+        "x-java-api-name" : "create"
+      },
+      "delete" : {
+        "tags" : [ "CategoryService" ],
+        "summary" : "Delete set of Categories",
+        "description" : "Delete set of Categories",
+        "operationId" : "removeAll_4",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "CategoryService",
+        "x-java-api-name" : "removeAll"
+      }
+    },
+    "/alertengine/categorys/list" : {
+      "put" : {
+        "tags" : [ "CategoryService" ],
+        "summary" : "Update list of Categories",
+        "description" : "Update list of Categories",
+        "operationId" : "updateAll_8",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/CategoryDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of the updated Alert Categories",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CategoryDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "CategoryService",
+        "x-java-api-name" : "updateAll"
+      },
+      "post" : {
+        "tags" : [ "CategoryService" ],
+        "summary" : "Create list of Categories",
+        "description" : "Create list of Categories",
+        "operationId" : "createAll_7",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/CategoryDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "List of Alert Categories created",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CategoryDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "CategoryService",
+        "x-java-api-name" : "createAll"
+      }
+    },
+    "/alertengine/categorys/{id}" : {
+      "get" : {
+        "tags" : [ "CategoryService" ],
+        "summary" : "Retrieve specific Category",
+        "description" : "Retrieve specific Category",
+        "operationId" : "get_1",
+        "produces" : [ "application/json", "application/xml" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/CategoryDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "CategoryService",
+        "x-java-api-name" : "get"
+      },
+      "delete" : {
+        "tags" : [ "CategoryService" ],
+        "summary" : "Delete specific Category",
+        "description" : "Delete specific Category",
+        "operationId" : "removeById_6",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "CategoryService",
+        "x-java-api-name" : "removeById"
+      },
+      "parameters" : [ {
+        "name" : "id",
+        "in" : "path",
+        "description" : "The unique id identifying the specific Alert Category",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int64",
+        "x-example" : 1
+      } ]
+    },
+    "/alertengine/notificationRules" : {
+      "get" : {
+        "tags" : [ "NotificationRuleService" ],
+        "summary" : "Retrieve Notification Rules using optional filters and can define the sorting using order by option",
+        "description" : "Retrieve Notification Rules using optional filters and can define the sorting using order by option",
+        "operationId" : "getAll_102",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "l",
+          "in" : "query",
+          "description" : "l (optional) Max amount of response elements (limit). Example <i>?l=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "o",
+          "in" : "query",
+          "description" : "o (optional) Offset in the data storage of the first response element. Example <i>?o=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "by",
+          "in" : "query",
+          "description" : "by (optional) Ordering criteria of response elements. Example <i>?by=aFieldName|desc</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "filter (optional) Filter criteria of the response. Example <i>?aFieldName=1|2|3</i>",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of all the Notification Rules based on the request parameter(s).",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/NotificationRuleDTO"
+              }
+            },
+            "headers" : {
+              "meta-totalCount" : {
+                "description" : "Number of existing elements with the query restriction.",
+                "type" : "string"
+              },
+              "meta-partialCount" : {
+                "description" : "Number of elements in the response.",
+                "type" : "string"
+              },
+              "meta-offset" : {
+                "description" : "Offset in the data storage of the first element of the response.",
+                "type" : "string"
+              },
+              "meta-next" : {
+                "description" : "Offset of the next existing element in data storage not included in the response.",
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "x-hasMetaData" : true,
+        "x-java-service-name" : "NotificationRuleService",
+        "x-java-api-name" : "getAll",
+        "x-getAll" : true
+      },
+      "put" : {
+        "tags" : [ "NotificationRuleService" ],
+        "summary" : "Update specific Notification Rule",
+        "description" : "Update specific Notification Rule",
+        "operationId" : "update_99",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NotificationRuleDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/NotificationRuleDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "NotificationRuleService",
+        "x-java-api-name" : "update"
+      },
+      "post" : {
+        "tags" : [ "NotificationRuleService" ],
+        "summary" : "Create one Notification Rule",
+        "description" : "Create one Notification Rule",
+        "operationId" : "create_100",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NotificationRuleDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/NotificationRuleDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "NotificationRuleService",
+        "x-java-api-name" : "create"
+      },
+      "delete" : {
+        "tags" : [ "NotificationRuleService" ],
+        "summary" : "Delete set of Notification Rules",
+        "description" : "Delete set of Notification Rules",
+        "operationId" : "deleteAll_101",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "NotificationRuleService",
+        "x-java-api-name" : "deleteAll"
+      }
+    },
+    "/alertengine/notificationRules/list" : {
+      "put" : {
+        "tags" : [ "NotificationRuleService" ],
+        "summary" : "Update list of Notification Rules",
+        "description" : "Update list of Notification Rules",
+        "operationId" : "updateAll_106",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/NotificationRuleDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of Notification Rules that are updated",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/NotificationRuleDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "NotificationRuleService",
+        "x-java-api-name" : "updateAll"
+      },
+      "post" : {
+        "tags" : [ "NotificationRuleService" ],
+        "summary" : "Create list of Notification Rules",
+        "description" : "Create list of Notification Rules",
+        "operationId" : "createAll_105",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/NotificationRuleDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of Notification Rules that are created",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/NotificationRuleDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "NotificationRuleService",
+        "x-java-api-name" : "createAll"
+      }
+    },
+    "/alertengine/notificationRules/search" : {
+      "post" : {
+        "tags" : [ "NotificationRuleService" ],
+        "summary" : "Retrieve Notification Rules based on the filter conditions passed in the input parameters",
+        "description" : "Retrieve Notification Rules based on the filter conditions passed in the input parameters",
+        "operationId" : "getAllByCustomFilter_107",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "l",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "o",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "by",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "<<Please update with proper description>>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/NotificationRuleSearchFilterDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of Notification Rules retrieved based on the filter conditions passed in the input parameters",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/NotificationRuleDTO"
+              }
+            },
+            "headers" : {
+              "meta-totalCount" : {
+                "description" : "Number of existing elements with the query restriction.",
+                "type" : "string"
+              },
+              "meta-partialCount" : {
+                "description" : "Number of elements in the response.",
+                "type" : "string"
+              },
+              "meta-offset" : {
+                "description" : "Offset in the data storage of the first element of the response.",
+                "type" : "string"
+              },
+              "meta-next" : {
+                "description" : "Offset of the next existing element in data storage not included in the response.",
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "NotificationRuleService",
+        "x-java-api-name" : "getAllByCustomFilter",
+        "x-getAll" : true
+      }
+    },
+    "/alertengine/notificationRules/{id}" : {
+      "get" : {
+        "tags" : [ "NotificationRuleService" ],
+        "summary" : "Retrieve specific Notification Rule based on the Notification Rule id",
+        "description" : "Retrieve specific Notification Rule based on the Notification Rule id",
+        "operationId" : "getById_104",
+        "produces" : [ "application/json", "application/xml" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/NotificationRuleDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "NotificationRuleService",
+        "x-java-api-name" : "getById"
+      },
+      "delete" : {
+        "tags" : [ "NotificationRuleService" ],
+        "summary" : "Delete specific Notification Rule",
+        "description" : "Delete specific Notification Rule",
+        "operationId" : "deleteById_103",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "NotificationRuleService",
+        "x-java-api-name" : "deleteById"
+      },
+      "parameters" : [ {
+        "name" : "id",
+        "in" : "path",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int64"
+      } ]
+    },
+    "/alertengine/templates" : {
+      "get" : {
+        "tags" : [ "TemplateService" ],
+        "summary" : "Retrieve Alert Templates using optional filters and can define the sorting using order by option",
+        "description" : "Retrieve Alert Templates using optional filters and can define the sorting using order by option",
+        "operationId" : "getAll_49",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "l",
+          "in" : "query",
+          "description" : "l (optional) Max amount of response elements (limit). Example <i>?l=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "o",
+          "in" : "query",
+          "description" : "o (optional) Offset in the data storage of the first response element. Example <i>?o=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "by",
+          "in" : "query",
+          "description" : "by (optional) Ordering criteria of response elements. Example <i>?by=aFieldName|desc</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "filter (optional) Filter criteria of the response. Example <i>?aFieldName=1|2|3</i>",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of all the Alert Templates based on the request parameter(s).",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/TemplateDTO"
+              }
+            },
+            "headers" : {
+              "meta-totalCount" : {
+                "description" : "Number of existing elements with the query restriction.",
+                "type" : "string"
+              },
+              "meta-partialCount" : {
+                "description" : "Number of elements in the response.",
+                "type" : "string"
+              },
+              "meta-offset" : {
+                "description" : "Offset in the data storage of the first element of the response.",
+                "type" : "string"
+              },
+              "meta-next" : {
+                "description" : "Offset of the next existing element in data storage not included in the response.",
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "x-hasMetaData" : true,
+        "x-java-service-name" : "TemplateService",
+        "x-java-api-name" : "getAll",
+        "x-getAll" : true
+      },
+      "put" : {
+        "tags" : [ "TemplateService" ],
+        "summary" : "Update specific Alert Template",
+        "description" : "Update specific Alert Template",
+        "operationId" : "update_46",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/TemplateDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/TemplateDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "TemplateService",
+        "x-java-api-name" : "update"
+      },
+      "post" : {
+        "tags" : [ "TemplateService" ],
+        "summary" : "Create one Alert Template",
+        "description" : "Create one Alert Template",
+        "operationId" : "create_47",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/TemplateDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/TemplateDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "TemplateService",
+        "x-java-api-name" : "create"
+      },
+      "delete" : {
+        "tags" : [ "TemplateService" ],
+        "summary" : "Delete set of Alert Templates",
+        "description" : "Delete set of Alert Templates",
+        "operationId" : "deleteAll_48",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "TemplateService",
+        "x-java-api-name" : "deleteAll"
+      }
+    },
+    "/alertengine/templates/list" : {
+      "put" : {
+        "tags" : [ "TemplateService" ],
+        "summary" : "Update list of Alert Templates",
+        "description" : "Update list of Alert Templates",
+        "operationId" : "updateAll_52",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/TemplateDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The updated list of Alert Templates",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/TemplateDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "TemplateService",
+        "x-java-api-name" : "updateAll"
+      },
+      "post" : {
+        "tags" : [ "TemplateService" ],
+        "summary" : "Create list of Alert Templates",
+        "description" : "Create list of Alert Templates",
+        "operationId" : "createAll_51",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "description" : "the entities to be saved",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/TemplateDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of Alert Templates that are created.",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/TemplateDTO"
+              }
+            }
+          }
+        },
+        "x-java-service-name" : "TemplateService",
+        "x-java-api-name" : "createAll"
+      }
+    },
+    "/alertengine/templates/{id}" : {
+      "get" : {
+        "tags" : [ "TemplateService" ],
+        "summary" : "Retrieve a specific Alert Template",
+        "description" : "Retrieve a specific Alert Template",
+        "operationId" : "get_45",
+        "produces" : [ "application/json", "application/xml" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/TemplateDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "TemplateService",
+        "x-java-api-name" : "get"
+      },
+      "delete" : {
+        "tags" : [ "TemplateService" ],
+        "summary" : "Delete a specific Alert Template",
+        "description" : "Delete a specific Alert Template",
+        "operationId" : "deleteById_50",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "TemplateService",
+        "x-java-api-name" : "deleteById"
+      },
+      "parameters" : [ {
+        "name" : "id",
+        "in" : "path",
+        "required" : true,
+        "type" : "integer",
+        "format" : "int64"
+      } ]
+    },
+    "/alertengine/alertTypes" : {
+      "get" : {
+        "tags" : [ "AlertTypeService" ],
+        "summary" : "Retrieve Alert types using optional filters and can define the sorting using order by option",
+        "description" : "Retrieve Alert types using optional filters and can define the sorting using order by option",
+        "operationId" : "getAll_21",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "l",
+          "in" : "query",
+          "description" : "(optional) Max amount of response elements (limit). Example <i>?l=10</i>",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "o",
+          "in" : "query",
+          "description" : "o (optional) Offset in the data storage of the first response element. Example <i>?o=10</i>",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "description" : "The list of all the Alert Types based on the request parameter(s).",
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlertTypeDTO"
+              }
+            },
+            "headers" : {
+              "meta-totalCount" : {
+                "description" : "Number of existing elements with the query restriction.",
+                "type" : "string"
+              },
+              "meta-partialCount" : {
+                "description" : "Number of elements in the response.",
+                "type" : "string"
+              },
+              "meta-offset" : {
+                "description" : "Offset in the data storage of the first element of the response.",
+                "type" : "string"
+              },
+              "meta-next" : {
+                "description" : "Offset of the next existing element in data storage not included in the response.",
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "x-roles-allowed" : {
+          "roles" : [ {
+            "role" : "Roles.ADMIN"
+          }, {
+            "role" : "Roles.EventAdmin"
+          }, {
+            "role" : "Roles.EventUser"
+          } ]
+        },
+        "x-hasMetaData" : true,
+        "x-java-service-name" : "AlertTypeService",
+        "x-java-api-name" : "getAll",
+        "x-getAll" : true
+      },
+      "put" : {
+        "tags" : [ "AlertTypeService" ],
+        "summary" : "Update specific Alert type",
+        "description" : "Update specific Alert type",
+        "operationId" : "update_18",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AlertTypeDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertTypeDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "AlertTypeService",
+        "x-java-api-name" : "update"
+      },
+      "post" : {
+        "tags" : [ "AlertTypeService" ],
+        "summary" : "Create one Alert type",
+        "description" : "Create one Alert type",
+        "operationId" : "create_19",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AlertTypeDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlertTypeDTO"
+            }
+          }
+        },
+        "x-java-service-name" : "AlertTypeService",
+        "x-java-api-name" : "create"
+      },
+      "delete" : {
+        "tags" : [ "AlertTypeService" ],
+        "summary" : "Delete set of Alert types",
+        "description" : "Delete set of Alert types",
+        "operationId" : "deleteAll_20",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "x-isVoid" : true,
+        "x-java-service-name" : "AlertTypeService",
+        "x-java-api-name" : "deleteAll"
+      }
+    }
+  },
+  "definitions" : {
+    "AlertCountResultDTO" : {
+      "type" : "object",
+      "properties" : {
+        "totalAlerts" : {
+          "format" : "int32",
+          "description" : "Total number of alerts based on the search condition",
+          "type" : "integer",
+          "example" : 10
+        },
+        "readAlerts" : {
+          "format" : "int32",
+          "description" : "Total number of alert messages marked as read based on the search condition",
+          "type" : "integer",
+          "example" : 5
+        }
+      }
+    },
+    "AlertCountSearchFilterDTO" : {
+      "type" : "object",
+      "properties" : {
+        "target" : {
+          "description" : "The name of the user name, group name or role name of the destination where the alert has to be sent. If target type is USERNAME, the target will contain the User name. If target type is ROLE, the target will contain the Role name. If target type is GROUP, the target will contain the Group name.",
+          "type" : "string",
+          "example" : "Robert Williams"
+        },
+        "alertTypeId" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert Type",
+          "type" : "integer",
+          "example" : -1
+        }
+      }
+    },
+    "AlertDTO" : {
+      "required" : [ "alertTypeId", "validFrom", "validTo" ],
+      "type" : "object",
+      "properties" : {
+        "updateVersion" : {
+          "format" : "int32",
+          "description" : "updateVersion is used to ensure the integrity of the data and to prevent concurrent updates on the same record.",
+          "type" : "integer"
+        },
+        "id" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert",
+          "type" : "integer",
+          "example" : -1
+        },
+        "referenceId" : {
+          "description" : "ID refers to the origination of the Alert like Portfolio ID, Goal ID, Product Code, Client ID, etc",
+          "maxLength" : 255,
+          "minLength" : 1,
+          "type" : "string",
+          "example" : "-1"
+        },
+        "referenceType" : {
+          "description" : "Refers to the type of ID in the referenceID field, for example, Portfolio ID, Product Code, Client ID etc",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "Portfolio ID"
+        },
+        "severity" : {
+          "description" : "Severity of the alert (used to 'decorate' the alert itself). For example, GREEN, AMBER, RED",
+          "type" : "string",
+          "example" : "GREEN"
+        },
+        "businessId" : {
+          "description" : "Business Identifier field will contain the combination of Target ID, Alert ID, Reference ID, etc that will used in the locating the specific entries when required",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "-1"
+        },
+        "source" : {
+          "description" : "The source system from where the Alert was triggered",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "SourceSystem"
+        },
+        "processedDate" : {
+          "format" : "date-time",
+          "description" : "processedDate is the date when a record in the alert table was processed and recs created in the alert repository table.",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "notes" : {
+          "description" : "Comments attached to the alert. This will be visible in the Alert Viewer",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "Notes for the alert"
+        },
+        "externalId" : {
+          "description" : "ID from the External System",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "1"
+        },
+        "customBody" : {
+          "description" : "Message with exact Content without place holders",
+          "type" : "string",
+          "example" : "This is the body of the Alert Message"
+        },
+        "customSubject" : {
+          "description" : "Subject to be displayed for the alert without place holders",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "This is the subject of the Alert Message"
+        },
+        "validTo" : {
+          "format" : "date-time",
+          "description" : "Expiry Date for the Alert",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "createdBy" : {
+          "description" : "The Id of the user who has created the Alert message",
+          "type" : "string",
+          "example" : "Robert William"
+        },
+        "createdDate" : {
+          "format" : "date-time",
+          "description" : "The date on which the Alert is created",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "validFrom" : {
+          "format" : "date-time",
+          "description" : "The date from which the alert is valid",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "url" : {
+          "description" : "Hyperlink provides the direct access to the alert's location",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "http://api.finantix.com/alertmessages"
+        },
+        "context" : {
+          "description" : "Alert can contain either Custom Subject or Custom Body or both and it can contain the placeholders. Values for the placeholders should be defined in the 'Context' field. Example:\nAssume Custom Subject was passed as \"Information about your Portfolio <$Port>\" for an Alert\n'Context' field in the Alert table should have the information like $Port=123456 and system will use this value to replace the placeholder when formatting the exact message in step 2a",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "$Port=123456"
+        },
+        "alertTypeId" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert Type",
+          "type" : "integer",
+          "example" : -1
+        },
+        "alertTargetDTOs" : {
+          "description" : "The list of Alert targets for this Alert",
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AlertTargetDTO"
+          }
+        }
+      }
+    },
+    "AlertListContainerDTO" : {
+      "description" : "The collection list object of the Alerts",
+      "type" : "object",
+      "properties" : {
+        "alert" : {
+          "description" : "The list of Alert entities",
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AlertDTO"
+          }
+        }
+      }
+    },
+    "AlertMessageDTO" : {
+      "type" : "object",
+      "properties" : {
+        "subject" : {
+          "description" : "Subject of template",
+          "type" : "string",
+          "example" : "Portfolio Overview Alert"
+        },
+        "message" : {
+          "description" : "body of template",
+          "type" : "string",
+          "example" : "Dear <$Title> <$FirstName> <$LastName>, You have received an Alert about Rebalancing your Portfolio. Login to your application for details."
+        },
+        "channel" : {
+          "description" : "The channel for which the Alert Template is applicable. For example, SMS, EMAIL, UI",
+          "type" : "string",
+          "example" : "SMS"
+        },
+        "mimeType" : {
+          "description" : "MIME stands for \"Multipurpose Internet Mail Extensions. It’s a way of identifying files on the Internet according to their nature and format. For example, using the “Content-type” header value defined in a HTTP response, the browser can open the file with the proper extension/plugin.",
+          "type" : "string",
+          "example" : "text/plain"
+        },
+        "address" : {
+          "description" : "The email address or phone number of the user where the alert number is sent",
+          "type" : "string",
+          "example" : "robertwilliam@gmaol.com"
+        },
+        "username" : {
+          "description" : "userName of user (Identification key)",
+          "type" : "string",
+          "example" : "robertWilliam"
+        },
+        "createdDate" : {
+          "format" : "date-time",
+          "description" : "The date on which the alert is created",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "resent" : {
+          "description" : "Indicates whether the message will be saved to resend table",
+          "type" : "boolean",
+          "example" : true
+        }
+      }
+    },
+    "AlertRepositoryDTO" : {
+      "required" : [ "actioned", "alertId", "alertTypeId", "referenceId", "source", "target", "validFrom", "validTo" ],
+      "type" : "object",
+      "properties" : {
+        "updateVersion" : {
+          "format" : "int32",
+          "description" : "updateVersion is used to ensure the integrity of the data and to prevent concurrent updates on the same record.",
+          "type" : "integer"
+        },
+        "id" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert Repository",
+          "type" : "integer",
+          "example" : -1
+        },
+        "target" : {
+          "description" : "The name of the user name, group name or role name of the destination where the alert has to be sent. If target type is USERNAME, the target will contain the User name. If target type is ROLE, the target will contain the Role name. If target type is GROUP, the target will contain the Group name.",
+          "maxLength" : 255,
+          "minLength" : 1,
+          "type" : "string",
+          "example" : "Robert William"
+        },
+        "alertId" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert",
+          "type" : "integer",
+          "example" : -1
+        },
+        "alertTypeId" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert Type",
+          "type" : "integer",
+          "example" : -1
+        },
+        "severity" : {
+          "description" : "Severity of the alert (used to ‘decorate’ the alert itself). For example, GREEN, AMBER, RED",
+          "type" : "string",
+          "example" : "GREEN"
+        },
+        "referenceId" : {
+          "description" : "D refers to the origination of the Alert like Portfolio ID, Goal ID, Product Code, Client ID, etc",
+          "maxLength" : 255,
+          "minLength" : 1,
+          "type" : "string",
+          "example" : "-1"
+        },
+        "referenceType" : {
+          "description" : "Refers to the type of ID in the referenceID field, for example, Portfolio ID, Product Code, Client ID etc",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "Portfolio ID"
+        },
+        "businessId" : {
+          "description" : "Business Identifier field will contain the combination of Target ID, Alert ID, Reference ID, etc that will used in the locating the specific entries when required",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "-1"
+        },
+        "source" : {
+          "description" : "The source system from where the Alert was triggered",
+          "maxLength" : 255,
+          "minLength" : 1,
+          "type" : "string",
+          "example" : "sourceSystem"
+        },
+        "actioned" : {
+          "description" : "Alert actioned by the User (Read/Unread)",
+          "type" : "boolean",
+          "example" : true
+        },
+        "starred" : {
+          "description" : "To indicate whether the alert is to be marked as Important",
+          "type" : "boolean",
+          "example" : true
+        },
+        "notes" : {
+          "description" : "Comments attached to the alert. This will be visible in the Alert Viewer",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "Notes for the alert"
+        },
+        "externalId" : {
+          "description" : "ID from the External System",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "-1"
+        },
+        "messageBody" : {
+          "description" : "Message with exact Content without place holders",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "This is the body of the Alert Message"
+        },
+        "messageSubject" : {
+          "description" : "Subject to be displayed for the alert without place holders",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "This is the subject of the Alert Message"
+        },
+        "url" : {
+          "description" : "Hyperlink provides the direct access to the alert's location",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "http://api.finantix.com/alertmessages"
+        },
+        "validFrom" : {
+          "format" : "date-time",
+          "description" : "The date from which the alert is valid",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "validTo" : {
+          "format" : "date-time",
+          "description" : "Expiry Date of the alert",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "createdBy" : {
+          "description" : "The Id of the user who has created the Alert message",
+          "type" : "string",
+          "example" : "Robert William"
+        },
+        "createdDate" : {
+          "format" : "date-time",
+          "description" : "The date on which the Alert is created",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "updatedBy" : {
+          "description" : "The id of the user who has updated the Alert Message",
+          "type" : "string",
+          "example" : "Robert William"
+        },
+        "updatedDate" : {
+          "format" : "date-time",
+          "description" : "The date on which the Alert is updated",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        }
+      }
+    },
+    "AlertRepositoryListContainerDTO" : {
+      "type" : "object",
+      "properties" : {
+        "alertRepository" : {
+          "description" : "The list of Alert Repository DTO",
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AlertRepositoryDTO"
+          }
+        }
+      }
+    },
+    "AlertRepositorySearchFilterDTO" : {
+      "description" : "The DTO contains fields which can be used to search specific entries or a group of entries from the Alert Repository entity.",
+      "type" : "object",
+      "properties" : {
+        "startCreatedDate" : {
+          "format" : "date-time",
+          "description" : "The \"from\" value of the Created date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "endCreatedDate" : {
+          "format" : "date-time",
+          "description" : "The \"to\" value of the Created date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "startValidToDate" : {
+          "format" : "date-time",
+          "description" : "The \"from\" value of the Valid To date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "endValidToDate" : {
+          "format" : "date-time",
+          "description" : "The \"to\" value of the Valid To date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "startValidFromDate" : {
+          "format" : "date-time",
+          "description" : "The \"from\" value of the Valid From date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "endValidFromDate" : {
+          "format" : "date-time",
+          "description" : "The \"from\" value of the Valid From date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "alertId" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert",
+          "type" : "integer",
+          "example" : -1
+        },
+        "target" : {
+          "description" : "The name of the user name, group name or role name of the destination where the alert has to be sent. If target type is USERNAME, the target will contain the User name. If target type is ROLE, the target will contain the Role name. If target type is GROUP, the target will contain the Group name.",
+          "type" : "string",
+          "example" : "Robert William"
+        },
+        "businessId" : {
+          "description" : "Business Identifier field will contain the combination of Target ID, Alert ID, Reference ID, etc that will used in the locating the specific entries when required",
+          "type" : "string",
+          "example" : "-1"
+        },
+        "severity" : {
+          "description" : "Severity of the alert (used to ‘decorate’ the alert itself). For example, GREEN, AMBER, RED",
+          "type" : "string",
+          "example" : "GREEN"
+        },
+        "externalId" : {
+          "description" : "ID from the External System",
+          "type" : "string",
+          "example" : "-1"
+        }
+      }
+    },
+    "AlertSearchFilterDTO" : {
+      "type" : "object",
+      "properties" : {
+        "startCreatedDate" : {
+          "format" : "date-time",
+          "description" : "The “from” value of the Created date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "endCreatedDate" : {
+          "format" : "date-time",
+          "description" : "The “to” value of the Created date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "startValidTo" : {
+          "format" : "date-time",
+          "description" : "The “from” value of the Valid To date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "endValidTo" : {
+          "format" : "date-time",
+          "description" : "The “to” value of the Valid To date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "startProcessedDate" : {
+          "format" : "date-time",
+          "description" : "The “from” value of the Processed date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "endProcessedDate" : {
+          "format" : "date-time",
+          "description" : "The “to” value of the Processed date",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "alertTypeId" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert",
+          "type" : "integer",
+          "example" : -1
+        },
+        "businessId" : {
+          "description" : "Business Identifier field will contain the combination of Target ID, Alert ID, Reference ID, etc that will used in the locating the specific entries when required",
+          "type" : "string",
+          "example" : "-1"
+        },
+        "severity" : {
+          "description" : "Severity of the alert (used to ‘decorate’ the alert itself). For example, GREEN, AMBER, RED",
+          "type" : "string",
+          "example" : "GREEN"
+        },
+        "externalId" : {
+          "description" : "ID from the External System",
+          "type" : "string",
+          "example" : "-1"
+        }
+      }
+    },
+    "AlertTargetDTO" : {
+      "description" : "The Alert Target DTO holds the list of targets to which the specific alert has to be sent. Data source that initiates the alert can insert one record in the Alert table with multiple records in the Target table. Example: Bank wants to send the same alert to both Customer and his/her advisor. In this case, create one record in the Alert Table and create two entries in the Target table for the Customer and Advisor respectively",
+      "required" : [ "alertId", "target", "targetType" ],
+      "type" : "object",
+      "properties" : {
+        "updateVersion" : {
+          "format" : "int32",
+          "description" : "updateVersion is used to ensure the integrity of the data and to prevent concurrent updates on the same record.",
+          "type" : "integer"
+        },
+        "id" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert Target",
+          "type" : "integer",
+          "example" : -1
+        },
+        "alertId" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert",
+          "type" : "integer",
+          "example" : -1
+        },
+        "target" : {
+          "description" : "The name of the user name, group name or role name of the destination where the alert has to be sent. If target type is USERNAME, the target will contain the User name. If target type is ROLE, the target will contain the Role name. If target type is GROUP, the target will contain the Group name.",
+          "maxLength" : 255,
+          "minLength" : 1,
+          "type" : "string",
+          "example" : "Robert Williams"
+        },
+        "targetType" : {
+          "description" : "The type of the target where the alert has to be sent. For example, USERNAME, ROLE, GROUP etc",
+          "default" : "USERNAME",
+          "type" : "string"
+        }
+      }
+    },
+    "AlertTargetListContainerDTO" : {
+      "description" : "The list of Alert Target Entities",
+      "type" : "object",
+      "properties" : {
+        "alertTarget" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AlertTargetDTO"
+          }
+        }
+      }
+    },
+    "AlertTypeDTO" : {
+      "description" : "The AlertTypeDTO entity holds the type of the Alert under each Alert Category (for example, Alert Name, Alert Description and Alert Severity)",
+      "required" : [ "categoryId", "name" ],
+      "type" : "object",
+      "properties" : {
+        "updateVersion" : {
+          "format" : "int32",
+          "description" : "updateVersion is used to ensure the integrity of the data and to prevent concurrent updates on the same record.",
+          "type" : "integer"
+        },
+        "id" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert Type",
+          "type" : "integer",
+          "example" : -1
+        },
+        "name" : {
+          "description" : "Name of the Alert Type",
+          "maxLength" : 255,
+          "minLength" : 1,
+          "type" : "string",
+          "example" : "Goal Completion"
+        },
+        "description" : {
+          "description" : "The short description of the specific Alert Type",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "Alerts in case of completion of the chosen Goal for a portfolio"
+        },
+        "categoryId" : {
+          "format" : "int64",
+          "description" : "The unique identifier of the Alert Category associated with this Alert Type",
+          "type" : "integer",
+          "example" : 1
+        },
+        "severity" : {
+          "description" : "Severity associated with the Alert type indicated as RED, GREEN, AMBER",
+          "type" : "string",
+          "example" : "GREEN"
+        }
+      }
+    },
+    "AlertTypeListContainerDTO" : {
+      "description" : "The collection list object for the the Alert Type entity",
+      "type" : "object",
+      "properties" : {
+        "alertType" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AlertTypeDTO"
+          }
+        }
+      }
+    },
+    "CategoryDTO" : {
+      "description" : "The CategoryDTO entity holds the property of the Alert Category, (for example, Category name and Category Description)",
+      "required" : [ "name" ],
+      "type" : "object",
+      "properties" : {
+        "updateVersion" : {
+          "format" : "int32",
+          "description" : "updateVersion is used to ensure the integrity of the data and to prevent concurrent updates on the same record.",
+          "type" : "integer"
+        },
+        "id" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Category",
+          "type" : "integer",
+          "example" : 1
+        },
+        "name" : {
+          "description" : "Name of the Category of the alert.",
+          "maxLength" : 255,
+          "minLength" : 1,
+          "type" : "string",
+          "example" : "Portfolio"
+        },
+        "description" : {
+          "description" : "The short description of the specific Category",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "Alerts based on Portfolio behaviour"
+        }
+      }
+    },
+    "CategoryListContainerDTO" : {
+      "description" : "A list collection object for the Alert Category DTO",
+      "type" : "object",
+      "properties" : {
+        "category" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CategoryDTO"
+          }
+        }
+      }
+    },
+    "NotificationRuleDTO" : {
+      "description" : "Notification Rules are used to send the Alert Notification via. SMS, EMAIL and PUSH and can be configured at Group, Role and User levels with the frequency mode and period for every Alert Type and Channel. Configuration is mandatory in order to send the Alert Notification.",
+      "required" : [ "alertTypeId", "channel", "frequencyMode", "frequencyPeriod", "target", "targetType" ],
+      "type" : "object",
+      "properties" : {
+        "updateVersion" : {
+          "format" : "int32",
+          "description" : "updateVersion is used to ensure the integrity of the data and to prevent concurrent updates on the same record.",
+          "type" : "integer"
+        },
+        "id" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Notification Rule",
+          "type" : "integer",
+          "example" : -1
+        },
+        "alertTypeId" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Alert Type",
+          "type" : "integer",
+          "example" : -1
+        },
+        "target" : {
+          "description" : "The name of the user name, group name or role name of the destination where the alert has to be sent. If target type is USERNAME, the target will contain the User name. If target type is ROLE, the target will contain the Role name. If target type is GROUP, the target will contain the Group name.",
+          "maxLength" : 255,
+          "minLength" : 1,
+          "type" : "string",
+          "example" : "Robert Williams"
+        },
+        "targetType" : {
+          "description" : "The type of the target where the alert has to be sent. For example, USERNAME, ROLE, GROUP etc",
+          "type" : "string",
+          "example" : "USERNAME"
+        },
+        "channel" : {
+          "description" : "The channel through which the alert has to be sent. For example, SMS, EMAIL etc",
+          "type" : "string",
+          "example" : "SMS"
+        },
+        "frequencyMode" : {
+          "description" : "The frequency at which the alert has to be sent. Example, \"ONCE\", \"DAYS\" etc",
+          "type" : "string",
+          "example" : "ONCE"
+        },
+        "frequencyPeriod" : {
+          "format" : "int32",
+          "description" : "The number of iterations of the frequency which has to be considered while sending the alert. Dependent on the frequencyMode value.",
+          "type" : "integer",
+          "example" : 3
+        },
+        "createdBy" : {
+          "description" : "The name of the user who has created the the Notification Rule entry",
+          "type" : "string",
+          "example" : "Robert Williams"
+        },
+        "createdDate" : {
+          "format" : "date-time",
+          "description" : "The date on which the Notification Rule entry was created",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        },
+        "updatedBy" : {
+          "description" : "The name of the user who has updated the the Notification Rule entry",
+          "type" : "string",
+          "example" : "Robert Williams"
+        },
+        "updatedDate" : {
+          "format" : "date-time",
+          "description" : "The date on which the Notification Rule entry was created",
+          "type" : "string",
+          "example" : "2016-02-28T16:41:41.090Z"
+        }
+      }
+    },
+    "NotificationRuleListContainerDTO" : {
+      "description" : "A list collection object for the Notification Rule DTO\nNotification Rules are used to send the Alert Notification via. SMS, EMAIL and PUSH and can be configured at Group, Role and User levels with the frequency mode and period for every Alert Type and Channel. Configuration is mandatory in order to send the Alert Notification.",
+      "type" : "object",
+      "properties" : {
+        "notificationRule" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/NotificationRuleDTO"
+          }
+        }
+      }
+    },
+    "NotificationRuleSearchFilterDTO" : {
+      "description" : "Search variables for the Notification Rule DTO.\nNotification Rules are used to send the Alert Notification via. SMS, EMAIL and PUSH and can be configured at Group, Role and User levels with the frequency mode and period for every Alert Type and Channel. Configuration is mandatory in order to send the Alert Notification.",
+      "type" : "object",
+      "properties" : {
+        "target" : {
+          "description" : "The name of the user name, group name or role name of the destination where the alert has to be sent. If target type is USERNAME, the target will contain the User name. If target type is ROLE, the target will contain the Role name. If target type is GROUP, the target will contain the Group name.",
+          "type" : "string",
+          "example" : "Robert Williams"
+        },
+        "alertTypeId" : {
+          "format" : "int64",
+          "description" : "The unique identifier of the Alert Type associated with this Alert Template",
+          "type" : "integer"
+        }
+      }
+    },
+    "TemplateDTO" : {
+      "description" : "Alert templates define the content and appearance of alerts. The TemplateDTO defines the properties of the Alert Template.",
+      "required" : [ "alertTypeId", "body", "channel", "mimeType", "validFrom" ],
+      "type" : "object",
+      "properties" : {
+        "updateVersion" : {
+          "format" : "int32",
+          "description" : "updateVersion is used to ensure the integrity of the data and to prevent concurrent updates on the same record.",
+          "type" : "integer"
+        },
+        "id" : {
+          "format" : "int64",
+          "description" : "Unique id assigned by the system to identify the Template",
+          "type" : "integer",
+          "example" : -1
+        },
+        "body" : {
+          "description" : "The format of the template defining the look and feel of the Alert and the placeholders for the variables.",
+          "type" : "string",
+          "example" : "Dear <$Title> <$FirstName> <$LastName>, You have received an Alert about Rebalancing your Portfolio. Login to your application for details."
+        },
+        "mimeType" : {
+          "description" : "MIME stands for \"Multipurpose Internet Mail Extensions. It's a way of identifying files on the Internet according to their nature and format. For example, using the \"Content-type\" header value defined in a HTTP response, the browser can open the file with the proper extension/plugin.",
+          "maxLength" : 255,
+          "minLength" : 1,
+          "type" : "string",
+          "example" : "text/plain"
+        },
+        "channel" : {
+          "description" : "The channel for which the Alert Template is applicable. For example, SMS, EMAIL, UI",
+          "type" : "string",
+          "example" : "SMS"
+        },
+        "subject" : {
+          "description" : "The Subject to be used while generating the Alert. This is applicable only for Channel as EMAIL",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "type" : "string",
+          "example" : "Alert for Rebalancing your Portfolio"
+        },
+        "validFrom" : {
+          "format" : "date-time",
+          "description" : "Indicates the date and timestamp from which the Alert is valid.",
+          "type" : "string",
+          "example" : "2018-03-17T00:00:00.000+01:00"
+        },
+        "alertTypeId" : {
+          "format" : "int64",
+          "description" : "The unique identifier of the Alert Type associated with this Alert Template",
+          "type" : "integer",
+          "example" : -1
+        }
+      }
+    },
+    "TemplateListContainerDTO" : {
+      "description" : "The Collection list object of the Template Entity (TemplateDTO)",
+      "type" : "object",
+      "properties" : {
+        "template" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TemplateDTO"
+          }
+        }
+      }
+    }
+  }
+}
